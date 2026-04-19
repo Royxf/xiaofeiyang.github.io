@@ -150,3 +150,32 @@ MIT © 2016-Present [George Cushen](https://georgecushen.com)
 <!--START_SECTION:news-->
 <!--Updated at 2026-03-01T01:17:27.720Z-->
 <!--END_SECTION:news-->
+
+---
+
+## Research Assistant Pipeline (Academic Search + Brainstorm)
+
+This repository now includes a runnable Python module under `research_assistant/` that implements:
+
+- Multi-source academic retrieval (`arXiv`, `Semantic Scholar`, plus `MockProvider` fallback)
+- A lightweight orchestration model (search → ranking → brainstorming → persistence)
+- Brainstorm idea card generation from paper abstracts
+- Persistent local knowledge store (`data/research_wiki.json`)
+
+### Quick Start
+
+```bash
+python -m research_assistant.cli --topic "retrieval-augmented generation" --offline
+```
+
+### Full Mode (network)
+
+```bash
+python -m research_assistant.cli --topic "graph neural networks" --limit 3 --cards 3
+```
+
+Optional Semantic Scholar key:
+
+```bash
+export SEMANTIC_SCHOLAR_API_KEY="your_key"
+```
